@@ -1,0 +1,257 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY – MODERN ARKA PLAN */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    color: #222;
+    background:
+        radial-gradient(circle at top left, #e0f7fa, transparent 40%),
+        radial-gradient(circle at bottom right, #ede7f6, transparent 40%),
+        linear-gradient(135deg, #f5f7fa, #e4ecf4);
+    background-attachment: fixed;
+}
+
+/* NAVBAR */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 18px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #00e5ff;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00e5ff;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    padding: 14px 35px;
+    background: #00e5ff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.hero-btn:hover {
+    background: white;
+    transform: scale(1.05);
+}
+
+/* GENEL SECTION */
+section {
+    max-width: 900px;
+    margin: 70px auto;
+    padding: 70px;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(14px);
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+/* BAŞLIKLAR */
+section h1, section h2 {
+    text-align: center;
+    font-size: 2.6em;
+    margin-bottom: 30px;
+    color: #111;
+}
+
+/* METİN */
+section p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+    text-align: center;
+}
+
+/* PROFİL */
+.profil-resmi {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 25px;
+    border: 4px solid #00e5ff;
+}
+
+/* PROJELER */
+#projelerim {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.project-card {
+    background: linear-gradient(135deg, #ffffff, #f3f7ff);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+    color: #0d47a1;
+}
+
+.project-card p {
+    text-align: left;
+    font-size: 16px;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+/* SOSYAL */
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon img {
+    width: 45px;
+    height: 45px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.2);
+}
+
+/* SCROLL ANİMASYONU */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    section {
+        margin: 40px 15px;
+        padding: 40px;
+    }
+}
+
+/* DARK MODE */
+body.dark {
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+body.dark section {
+    background: rgba(30, 41, 59, 0.9);
+}
+
+body.dark nav {
+    background: rgba(0,0,0,0.9);
+}
+/* HIZLI REVEAL ANİMASYONU */
+.reveal {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: 0.3s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* SAYFA GEÇİŞ ANİMASYONLARINI KAPAT */
+.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+/* SADECE PROJE KARTLARI ANİMASYONLU */
+.project-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: projectFade 0.4s ease forwards;
+}
+
+/* PROJELER ANİMASYONU */
+@keyframes projectFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
